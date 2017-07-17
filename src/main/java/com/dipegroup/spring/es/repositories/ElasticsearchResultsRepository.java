@@ -6,8 +6,8 @@ import com.dipegroup.spring.es.models.beans.ResultsBean;
 import com.dipegroup.spring.es.models.fields.SortWorkflowField;
 import com.dipegroup.spring.es.models.objects.EsModel;
 import com.dipegroup.spring.es.models.results.Results;
-import com.dipegroup.spring.es.services.app.AppFieldsService;
-import com.dipegroup.spring.es.services.es.ElasticClientService;
+import com.dipegroup.spring.es.services.app.page.AppFieldsService;
+import com.dipegroup.spring.es.services.es.ElasticsearchClientService;
 import com.dipegroup.spring.es.services.es.ElasticsearchCriteriaBuilder;
 import com.dipegroup.spring.es.services.es.ElasticsearchHighlightingService;
 import org.apache.commons.lang3.StringUtils;
@@ -30,7 +30,7 @@ public abstract class ElasticsearchResultsRepository<E extends EsModel<K>, K>
     private final MessagesService messagesService;
     protected final Class<E> responseType;
 
-    public ElasticsearchResultsRepository(ElasticClientService clientService,
+    public ElasticsearchResultsRepository(ElasticsearchClientService clientService,
                                           MessagesService messagesService,
                                           AppFieldsService<E> fieldsService,
                                           ElasticsearchCriteriaBuilder criteriaBuilder, Class<E> type,

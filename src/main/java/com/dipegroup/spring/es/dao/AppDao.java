@@ -26,7 +26,7 @@ public interface AppDao<N extends DbModel, K> {
 
     List<N> get(Collection<K> ids);
 
-    N findByName(String name);
+    N findByKey(String key);
 
     boolean exist(K id);
 

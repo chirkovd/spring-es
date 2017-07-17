@@ -1,7 +1,7 @@
 package com.dipegroup.spring.es.repositories;
 
 import com.dipegroup.spring.es.models.objects.EsModel;
-import com.dipegroup.spring.es.services.es.ElasticClientService;
+import com.dipegroup.spring.es.services.es.ElasticsearchClientService;
 import org.apache.commons.io.IOUtils;
 import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.common.xcontent.XContentType;
@@ -28,7 +28,7 @@ public abstract class ElasticsearchIndexRepository<E extends EsModel<K>, K> {
     protected String index;
     protected String type;
 
-    public ElasticsearchIndexRepository(ElasticClientService clientService) {
+    public ElasticsearchIndexRepository(ElasticsearchClientService clientService) {
         this.adminClient = clientService.client().admin().indices();
     }
 

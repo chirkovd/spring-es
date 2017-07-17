@@ -1,4 +1,4 @@
-package com.dipegroup.spring.es.services.app;
+package com.dipegroup.spring.es.services.app.page;
 
 import com.dipegroup.spring.es.models.fields.FilterWorkflowField;
 import com.dipegroup.spring.es.models.fields.SearchWorkflowField;

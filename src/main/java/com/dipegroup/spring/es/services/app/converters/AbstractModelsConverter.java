@@ -1,6 +1,9 @@
-package com.dipegroup.spring.es.services.app;
+package com.dipegroup.spring.es.services.app.converters;
 
 import com.dipegroup.exceptions.models.AppException;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Project: spring-es
@@ -33,9 +36,13 @@ public abstract class AbstractModelsConverter<O, T> {
         }
     }
 
-    protected abstract O targetToOriginal(T target);
+    public List<O> targetToOriginal(List<T> items) {
+        return items.stream().map(this::targetToOriginal).collect(Collectors.toList());
+    }
 
-    protected abstract T originalToTarget(O original);
+    public abstract O targetToOriginal(T target);
+
+    public abstract T originalToTarget(O original);
 
     public interface ConvertedAction<N> {
         N action(N object) throws AppException;

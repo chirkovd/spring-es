@@ -12,5 +12,5 @@ public interface OriginalModel<K> {
 
     K getId();
 
-    String getName();
+    String getKey();
 }

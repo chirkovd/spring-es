@@ -3,8 +3,8 @@ package com.dipegroup.spring.es.repositories;
 import com.dipegroup.exceptions.models.AppException;
 import com.dipegroup.exceptions.services.messages.MessagesService;
 import com.dipegroup.spring.es.models.objects.EsModel;
-import com.dipegroup.spring.es.services.app.AppFieldsService;
-import com.dipegroup.spring.es.services.es.ElasticClientService;
+import com.dipegroup.spring.es.services.app.page.AppFieldsService;
+import com.dipegroup.spring.es.services.es.ElasticsearchClientService;
 import com.dipegroup.spring.es.services.es.ElasticsearchCriteriaBuilder;
 import com.dipegroup.spring.es.services.es.ElasticsearchHighlightingService;
 import org.apache.commons.lang3.StringUtils;
@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class ElasticsearchExpandRepository<E extends EsModel<K>, K> extends ElasticsearchResultsRepository<E, K> {
 
-    public ElasticsearchExpandRepository(ElasticClientService clientService,
+    public ElasticsearchExpandRepository(ElasticsearchClientService clientService,
                                          MessagesService messagesService,
                                          AppFieldsService<E> fieldsService,
                                          ElasticsearchCriteriaBuilder criteriaBuilder, Class<E> type,

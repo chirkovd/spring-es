@@ -1,4 +1,4 @@
-package com.dipegroup.spring.es.services.app;
+package com.dipegroup.spring.es.services.app.converters;
 
 import com.dipegroup.spring.es.dao.AppDao;
 import com.dipegroup.spring.es.models.objects.DbModel;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * @since 1.8
  */
 public abstract class AbstractEsModelsConverter<O extends DbModel<K>, T extends EsModel<K>, K>
-        extends AbstractModelsConverter<O, T> {
+        extends AbstractModelsConverter<O, T>  {
 
     private final AppDao<O, K> appDao;
 
@@ -26,7 +26,8 @@ public abstract class AbstractEsModelsConverter<O extends DbModel<K>, T extends 
         this.appDao = appDao;
     }
 
-    public List<O> convertToCore(List<T> items) {
+    @Override
+    public List<O> targetToOriginal(List<T> items) {
         Map<K, O> result = items.stream().collect(Collectors.toMap(EsModel::getId, this::targetToOriginal));
         List<O> stored = appDao.get(result.keySet());
         if (stored != null) {

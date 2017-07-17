@@ -16,14 +16,14 @@ import org.elasticsearch.client.Client;
  * @author Dmitriy_Chirkov
  * @since 1.8
  */
-public class ElasticClientService {
+public class ElasticsearchClientService {
 
     private final Client client;
     private final ObjectMapper objectMapper;
 
     private boolean disabled;
 
-    public ElasticClientService(Client client, ObjectMapper objectMapper) {
+    public ElasticsearchClientService(Client client, ObjectMapper objectMapper) {
         this.client = client;
         this.objectMapper = objectMapper;
     }

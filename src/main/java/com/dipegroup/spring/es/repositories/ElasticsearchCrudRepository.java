@@ -6,8 +6,8 @@ import com.dipegroup.spring.es.models.objects.EsModel;
 import com.dipegroup.spring.es.models.results.RepositoryType;
 import com.dipegroup.spring.es.models.results.RepositoryTypeImpl;
 import com.dipegroup.spring.es.models.results.Results;
-import com.dipegroup.spring.es.services.app.AppCounterService;
-import com.dipegroup.spring.es.services.es.ElasticClientService;
+import com.dipegroup.spring.es.services.app.page.AppCounterService;
+import com.dipegroup.spring.es.services.es.ElasticsearchClientService;
 import com.dipegroup.spring.es.services.es.ElasticsearchHighlightingService;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
@@ -39,12 +39,12 @@ import java.util.List;
 public abstract class ElasticsearchCrudRepository<E extends EsModel<K>, K>
         extends ElasticsearchIndexRepository<E, K> implements AppCounterService<E> {
 
-    protected final ElasticClientService clientService;
+    protected final ElasticsearchClientService clientService;
     protected final Client client;
 
     private final ElasticsearchHighlightingService<E, K> highlightingService;
 
-    public ElasticsearchCrudRepository(ElasticClientService clientService,
+    public ElasticsearchCrudRepository(ElasticsearchClientService clientService,
                                        ElasticsearchHighlightingService<E, K> highlightingService) {
         super(clientService);
         this.clientService = clientService;
