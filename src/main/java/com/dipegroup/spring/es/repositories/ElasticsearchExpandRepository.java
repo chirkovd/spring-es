@@ -17,7 +17,8 @@ import java.util.List;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: this instance implement logic for quick search functionality: can be used for search items by prefix
+ *              in fields that are marked as searchable (provided by {@code fieldsService})
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov

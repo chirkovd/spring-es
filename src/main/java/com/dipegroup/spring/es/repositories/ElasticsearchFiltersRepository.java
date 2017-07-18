@@ -27,7 +27,9 @@ import java.util.Map;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: this instance implemented common logic for loading filter groups by ES aggregations, collection of
+ *              filters is configurable and provided by {@code fieldsService}. Besides, filter groups depends on
+ *              different constraints: search term or selected item for limit/exclude from results.
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov

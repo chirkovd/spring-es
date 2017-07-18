@@ -47,7 +47,7 @@ public class ElasticsearchClientService {
 
     public Client getClient() throws AppException {
         if (isDisabled()) {
-            throw new AppException("Search engine is not available");
+            throw new AppException("search.engine.unavailable");
         } else {
             return client;
         }

@@ -8,17 +8,18 @@ import java.util.List;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: common DAO contract for {@code DbModel}, that describes basic CRUD operations and some specific,
+ *              that are required for application logic.
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov
  * @since 1.8
  */
-public interface AppDao<N extends DbModel, K> {
+public interface AppDao<N extends DbModel<K>, K> {
 
-    N create(N nativeObject) throws AppException;
+    N create(N dbModel) throws AppException;
 
-    N update(N nativeObject);
+    N update(N dbModel);
 
     void remove(K id);
 

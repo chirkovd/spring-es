@@ -18,7 +18,9 @@ import org.elasticsearch.search.sort.SortOrder;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: this repository defines how to load results with selected sorting/ordering, page and page size,
+ *              selected filters and limits. More then that search term also influence on results as additional
+ *              constraint.
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov

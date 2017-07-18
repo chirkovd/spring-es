@@ -12,7 +12,8 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: root repository for {@code EsModel}, that defines basic functionality for creating ES index
+ *              by provided mapping and settings json files.
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov
@@ -32,20 +33,12 @@ public abstract class ElasticsearchIndexRepository<E extends EsModel<K>, K> {
         this.adminClient = clientService.client().admin().indices();
     }
 
-    public String getMapping() {
-        return mapping;
-    }
-
     public void setMapping(String mapping) {
         this.mapping = mapping;
     }
 
     public void setMapping(InputStream mappingSource) throws IOException {
         setMapping(IOUtils.toString(mappingSource, StandardCharsets.UTF_8.name()));
-    }
-
-    public String getSetting() {
-        return setting;
     }
 
     public void setSetting(String setting) {
@@ -64,6 +57,9 @@ public abstract class ElasticsearchIndexRepository<E extends EsModel<K>, K> {
         this.type = type;
     }
 
+    /**
+     * Before creating index, {@code mapping} and {@code setting} should be initialized
+     */
     public void create() {
         adminClient.prepareCreate(index)
                 .addMapping(type, mapping, XContentType.JSON)

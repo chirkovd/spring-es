@@ -30,7 +30,7 @@ import java.util.List;
 
 /**
  * Project: spring-es
- * Description:
+ * Description: basic implementation for simple and batch CRUD operations
  * Date: 7/17/2017
  *
  * @author Dmitriy_Chirkov
