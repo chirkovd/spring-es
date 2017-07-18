@@ -4,8 +4,8 @@
   <artifactId>spring-es</artifactId>
   <versioning>
     <versions>
-      <version>1.0.2-SNAPSHOT</version>
+      <version>1.0.3-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20170718093925</lastUpdated>
+    <lastUpdated>20170718103807</lastUpdated>
   </versioning>
 </metadata>
